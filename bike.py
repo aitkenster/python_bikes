@@ -1,4 +1,10 @@
 class Bike:
 	def __init__(self):
-		self.broken = False
+		self.punctured = False
+
+	def puncture(self):
+		self.punctured = True
+
+	def patch(self):
+		self.punctured = False
 
