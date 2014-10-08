@@ -8,6 +8,7 @@ class TestDockingStation:
 				self.bank = DockingStation()
 				with Stub() as self.bike:
 						self.bike.isinstance(Bike) >> True
+						self.bike.punctured >> False
 				with Stub() as self.chicken:
 						self.chicken.isinstance(Bike) >> False
 				with Stub() as self.punctured_bike:
@@ -45,5 +46,6 @@ class TestDockingStation:
 
 		def test_can_return_punctured_bikes(self):
 				self.bank.bikes.append(self.punctured_bike)
+				self.bank.bikes.append(self.bike)
 				self.bank.get_punctured_bikes()
 				assert len(self.bank.punctured_bikes) == 1
