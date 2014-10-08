@@ -1,6 +1,10 @@
-class Van:
-		def __init__(self):
-				print "hi"
+from bikecontainer import *
 
-		def collect_bikes(self, location, bike_status):
-				print "hi"
+class Van(BikeContainer):
+		def __init__(self):
+				BikeContainer.__init__(self)
+
+		# def collect_bikes(self, station, status):
+		# 		if status == "punctured"
+		# 				station.get_punctured_bikes()
+						

@@ -5,7 +5,7 @@ class DockingStation(BikeContainer):
 				BikeContainer.__init__(self)
 
 		def get_punctured_bikes(self):
-				for bike in self.bikes:
+				for bike in self.working_bikes:
 						if bike.punctured == True:
 								self.punctured_bikes.append(bike)
 
