@@ -10,6 +10,7 @@ class TestDockingStation:
 						self.bike.isinstance(Bike) >> True
 						self.bike.punctured >> False
 				with Stub() as self.punctured_bike:
+						self.punctured_bike.isinstance(Bike) >> True
 						self.punctured_bike.punctured >> True
 				with Stub() as self.chicken:
 						self.chicken.isinstance(Bike) >> False
@@ -29,13 +30,18 @@ class TestDockingStation:
 				self.box.dock(self.bike)
 				assert len(self.box.working_bikes) == 1
 
-		# def test_can_dock_a_punctured_bike(self):
-		# 		self.box.dock(self.punctured_bike)
+		def test_can_dock_a_punctured_bike(self):
+		 		self.box.dock(self.punctured_bike)
 
 		def test_can_undock_a_bike(self):
-			  self.box.dock(self.bike)
+			  self.box.working_bikes.append(self.bike)
 			  self.box.undock(self.bike)
 			  assert len(self.box.working_bikes) == 0
+
+		def test_knows_how_many_bikes_are_docked(self):
+				self.box.working_bikes.append(self.bike)
+				self.box.punctured_bikes.append(self.punctured_bike)
+				assert self.box.total_bikes_docked() == 2
 
 		def test_knows_item_is_not_a_bike(self):
 				assert self.box.check_is_bike(self.chicken) == False
