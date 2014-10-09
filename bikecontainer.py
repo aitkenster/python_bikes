@@ -16,10 +16,7 @@ class BikeContainer:
 				self.working_bikes.remove(item)
 
 		def check_is_bike(self, item):
-				if item.isinstance(Bike):
-						return True
-				else:
-						return False
+				return item.isinstance(Bike)
 
 		def total_bikes_docked(self):
 				return len(self.working_bikes) + len(self.punctured_bikes)

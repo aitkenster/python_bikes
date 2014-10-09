@@ -2,7 +2,7 @@ import pytest
 from ludibrio import *
 from bikecontainer import *
 
-class TestDockingStation:
+class TestBikeContainer:
 
 		def setup_method(self, method):
 				self.box = BikeContainer()

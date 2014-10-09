@@ -13,7 +13,7 @@ class TestDockingStation:
 						self.punctured_bike.punctured >> True
 		
 	
-		def test_inherits_from_dockingstation(self):
+		def test_inherits_from_bike_container(self):
 				assert self.bank.capacity == 10
 
 		def test_can_return_punctured_bikes(self):
